@@ -16,19 +16,19 @@ const { count, inc, dec } = useCounter()
     <button @click="dec()">
       -1
     </button>
-    <a-button type="primary">
+    <el-button type="primary">
       Primary Button
-    </a-button>
-    <a-button>Default Button</a-button>
-    <a-button type="dashed">
+    </el-button>
+    <el-button>Default Button</el-button>
+    <el-button type="dashed">
       Dashed Button
-    </a-button>
-    <a-button type="text">
+    </el-button>
+    <el-button type="text">
       Text Button
-    </a-button>
-    <a-button type="link">
+    </el-button>
+    <el-button type="link">
       Link Button
-    </a-button>
+    </el-button>
   </div>
 </template>
 

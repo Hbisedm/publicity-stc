@@ -16,9 +16,8 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.12.0",
-    "ant-design-vue": "^3.2.15",
-    "element-plus": "^2.2.30",
     "echarts": "^5.4.1",
+    "element-plus": "^2.2.30",
     "pinia": "^2.0.30",
     "vue": "^3.2.45",
     "vue-router": "4"
