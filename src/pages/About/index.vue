@@ -6,7 +6,7 @@ const { count, inc, dec } = useCounter()
 
 <template>
   <div>
-    <h1>About</h1>
+    <h1>About1</h1>
 
     <p>使用vue use</p>
     <p>{{ count }}</p>
