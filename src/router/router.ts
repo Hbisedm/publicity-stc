@@ -7,6 +7,7 @@ const Scenic = () => import('@/pages/Scenic/index.vue')
 const Food = () => import('@/pages/Food/index.vue')
 const Experience = () => import('@/pages/Experience/index.vue')
 const City = () => import('@/pages/City/index.vue')
+const District = () => import('@/pages/City/District.vue')
 const Way = () => import('@/pages/Way/index.vue')
 
 const Demo = () => import('@/pages/PlayGround/Demo.vue')
@@ -42,6 +43,10 @@ export const routes: Array<RouteRecordRaw> = [
   }, {
     path: '/city',
     component: City,
+  },
+  {
+    path: '/district/:name',
+    component: District,
   },
   {
     path: '/way',
