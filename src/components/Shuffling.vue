@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { useShufflingStore } from '@/stores/useShuffling'
 
+const changeTopIndex = useShufflingStore()
+
+const changeShuffling = (index: number) => {
+  changeTopIndex.changeIndex(index)
+}
 </script>
 
 <template>
-  <el-carousel type="card" :autoplay="false" indicator-position="none">
+  <el-carousel type="card" :autoplay="false" indicator-position="none" @change="changeShuffling">
     <el-carousel-item v-for="item in 6" :key="item">
       <h3 text="2xl" justify="center">
         {{ item }}
