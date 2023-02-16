@@ -1,15 +1,16 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
-  <el-carousel  type="card" :autoplay="false" indicator-position="none">
+  <el-carousel type="card" :autoplay="false" indicator-position="none">
     <el-carousel-item v-for="item in 6" :key="item">
-      <h3 text="2xl" justify="center">{{ item }}</h3>
+      <h3 text="2xl" justify="center">
+        {{ item }}
+      </h3>
     </el-carousel-item>
   </el-carousel>
 </template>
-
-<script setup lang="ts">
-
-
-</script>
 
 <style scoped>
 .el-carousel__item h3 {
@@ -27,4 +28,3 @@
   background-color: #d3dce6;
 }
 </style>
-

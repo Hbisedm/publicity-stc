@@ -21,15 +21,22 @@ interface GeoType {
   }[]
 }
 
+interface IGeo {
+  name: string
+  mapData: Promise
+  shrink: string
+  desc: string
+}
+
 /**
  * 使用行政区地图数据
  */
 export const useMapData = defineStore('district', () => {
-  const mapData = ref('')
+  const presentGeo = ref<IGeo>(null)
 
   function changePresentDistrict(data: GeoType) {
-    mapData.value = data
+    presentGeo.value = data
   }
 
-  return { mapData, changePresentDistrict }
+  return { presentGeo, changePresentDistrict }
 })

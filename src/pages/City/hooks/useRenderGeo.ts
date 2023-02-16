@@ -1,48 +1,86 @@
 import { onBeforeUnmount, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useMapData } from '@/stores/useMapData'
 import type { ECOption } from '@/lib'
 import { echarts } from '@/lib'
 import { districtMap } from '@/dictionary'
-export function useRenderGeo(city: HTMLElement, geoData: any) {
-  const { changePresentDistrict } = useMapData()
+
+/**
+ * dom
+ * shrink: 地图简称
+ * geoData: 地图数据
+ * initial: 是否初始化
+ */
+export function useRenderGeo(dom: HTMLElement, shrink: string, geoData: any, initial = true) {
+  const router = useRouter()
+  const mapDataStore = useMapData()
   function bingEcharts() {
-    const myChart = echarts.init(city.value!)
-    echarts.registerMap('ShanTou', geoData)
+    const myChart = echarts.init(dom.value!)
+    echarts.registerMap(shrink, geoData) // 注册地图数据
+    // echarts diy 配置
     const option = {
-      series: [
-        {
-          type: 'map',
-          map: 'ShanTou', // 引入地图数据
+      geo: [{
+        roam: 'scale',
+        type: 'map',
+        show: true,
+        map: shrink, // 引入地图数据
+        projection: {
+          project: point => [point[0] / 180 * Math.PI, -Math.log(Math.tan((Math.PI / 2 + point[1] / 180 * Math.PI) / 2))],
+          unproject: point => [point[0] * 180 / Math.PI, 2 * 180 / Math.PI * Math.atan(Math.exp(point[1])) - 90],
         },
-      ],
+        label: {
+          show: true, // 显示文本
+        },
+        itemStyle: {
+          areaColor: '#f00',
+          color: '#f00',
+          borderColor: '#000',
+          borderType: 'dotted',
+          shadowColor: 'rgba(0, 0, 0, 0.5)',
+          shadowBlur: 20,
+          shadowOffsetX: 4,
+          shadowOffsetY: 4,
+        },
+        emphasis: { // 高亮时
+          focus: 'self',
+
+        },
+      }],
     }
     myChart.setOption(option as ECOption)
-    myChart.on('click', (params) => {
-      const target = districtMap.find(item => item.name === params.name)
-      target?.mapData.then((res) => {
-        const targetMap = res.default
+    if (initial) {
+      // 监听事件
+      myChart.on('click', (params) => {
+        const target = districtMap.find(item => item.name === params.name)
         // 拿到行政区数据
-        changePresentDistrict(targetMap)
+        mapDataStore.changePresentDistrict(target)
+        router.push({
+          path: `/district/${target.name}`,
+        })
       })
-    })
+    }
   }
 
-  onMounted(() => {
+  if (initial) {
+    onMounted(() => {
+      bingEcharts()
+    })
+    // 销毁echarts
+    onBeforeUnmount(() => {
+      const myChart = echarts.init(dom.value!)
+      myChart.dispose()
+    })
+  }
+  else {
     bingEcharts()
-  })
+  }
 
   // 处理echarts自适应
   const getDOMFlag = true
   let myChart: any = null
   window.addEventListener('resize', () => {
     if (getDOMFlag)
-      myChart = echarts.init(city.value!)
+      myChart = echarts.init(dom.value!)
     myChart.resize()
-  })
-
-  // 销毁echarts
-  onBeforeUnmount(() => {
-    const myChart = echarts.init(city.value!)
-    myChart.dispose()
   })
 }
