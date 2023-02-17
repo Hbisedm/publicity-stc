@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     Footer: typeof import('./src/components/Footer.vue')['default']
+    Introduce: typeof import('./src/components/Introduce.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Shuffling: typeof import('./src/components/Shuffling.vue')['default']

@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import Shuffling from '@/components/Shuffling.vue'
-const topBox = ref()
+import Introduce from '@/components/Introduce.vue'
+
+// 获取顶部盒子dom
+const topBox = ref<null | HTMLElement>(null)
+// 获取dom高度
 const h = ref<number>(0)
+
 onMounted(() => {
-  h.value = topBox.value.offsetHeight
+  h.value = topBox.value!.offsetHeight
 })
 </script>
 
@@ -14,10 +19,14 @@ onMounted(() => {
       <div class="top-img-box">
         <Shuffling :height="`${h}px`" />
       </div>
-      <div class="top-text-box" />
+      <div class="top-text-box">
+        <Introduce />
+      </div>
     </div>
     <div class="bottomBox">
-      <div class="bottom-text-box" />
+      <div class="bottom-text-box">
+        222333
+      </div>
       <div class="bottom-img-box" />
     </div>
   </div>
@@ -30,6 +39,7 @@ onMounted(() => {
   justify-content: space-between;
   height: calc(100vh - 96px);
   background-image: linear-gradient(#e66465, #9198e5);
+  box-sizing: border-box;
   // 顶部 begin
   .topBox {
     height: 45%;
