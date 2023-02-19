@@ -17,7 +17,7 @@ onMounted(() => {
   <div id="box">
     <div ref="topBox" class="topBox">
       <div class="top-img-box">
-        <Shuffling :height="`${h}px`" />
+        <Shuffling :height="`${h}px`" type="card" :autoplay="false" indicator-position="none" />
       </div>
       <div class="top-text-box">
         <Introduce />

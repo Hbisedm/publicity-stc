@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="flex flex-row w-screen justify-around  flex-shrink-0 items-center m-t-auto">
-    <div class="bg-green-2 w-12 h-12 grid" title="logo">
+  <div class="footer-linear-gradient-bg flex flex-row w-screen justify-around  flex-shrink-0 items-center m-t-auto">
+    <div class="w-12 h-12 grid" title="logo">
       <div class="m-auto">
         LOGO
       </div>
@@ -19,6 +19,9 @@
   </div>
 </template>
 
-<style scoped>
-
+<style scoped lang="scss">
+.footer-linear-gradient-bg {
+  background: $bg-linear-gradient-reversal-color;
+  color: $topic-color;
+}
 </style>

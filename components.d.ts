@@ -7,14 +7,20 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    DisplayBox: typeof import('./src/components/DisplayBox.vue')['default']
+    DisplayBreviaryBox: typeof import('./src/components/DisplayBreviaryBox.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
+    ElLink: typeof import('element-plus/es')['ElLink']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Introduce: typeof import('./src/components/Introduce.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Shuffling: typeof import('./src/components/Shuffling.vue')['default']
     Tab: typeof import('./src/components/Tab.vue')['default']
+    TheDisplay: typeof import('./src/components/TheDisplay.vue')['default']
+    TheDisplayBox: typeof import('./src/components/TheDisplayBox.vue')['default']
+    Title: typeof import('./src/components/Title.vue')['default']
   }
 }

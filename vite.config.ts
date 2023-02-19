@@ -31,5 +31,10 @@ export default defineConfig({
     postcss: {
       plugins: [postcssPresetEnv()],
     },
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/assets/styles/index.scss";',
+      },
+    },
   },
 })
