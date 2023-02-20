@@ -7,8 +7,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Display: typeof import('./src/components/Display.vue')['default']
     DisplayBox: typeof import('./src/components/DisplayBox.vue')['default']
     DisplayBreviaryBox: typeof import('./src/components/DisplayBreviaryBox.vue')['default']
+    DisplayRotograph: typeof import('./src/components/DisplayRotograph.vue')['default']
+    DisplayTotograph: typeof import('./src/components/DisplayTotograph.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']

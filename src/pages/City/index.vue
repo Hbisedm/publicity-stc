@@ -12,8 +12,8 @@ useRenderGeo(city as any, 'ShanTou', ShanTou)
 </script>
 
 <template>
-  <div>
-    <div id="myChart2" ref="city" class="h-xl" />
+  <div class="container">
+    <div ref="city" class="h-xl" />
     <h1>关于汕头</h1>
     <div class="content">
       ................desc...............
@@ -21,6 +21,9 @@ useRenderGeo(city as any, 'ShanTou', ShanTou)
   </div>
 </template>
 
-<style scoped>
-
+<style scoped lang="scss">
+.container {
+  display: flex;
+  background: $bg-linear-gradient-color;
+}
 </style>

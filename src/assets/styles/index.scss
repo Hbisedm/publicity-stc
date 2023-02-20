@@ -5,7 +5,13 @@ $topic-color: #f1f1f1;
 
 // 描述文字的大小
 $desc-font-size: 16px;
+$topic-title-size: 50px;
 
 // 背景颜色的渐变
 $bg-linear-gradient-color: linear-gradient(#102d66, #22538c);
 $bg-linear-gradient-reversal-color: linear-gradient(#22538c, #102d66 );
+
+// 中间显示区域的高度
+$content-height: 88vh;
+// tab footer 高度
+$tab-height: 6vh;

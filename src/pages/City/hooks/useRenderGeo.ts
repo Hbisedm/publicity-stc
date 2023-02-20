@@ -5,6 +5,10 @@ import type { ECOption } from '@/lib'
 import { echarts } from '@/lib'
 import { districtMap } from '@/dictionary'
 
+const areaColor = '#22538c'
+const color = '#ff0'
+const borderColor = '#0f0'
+
 /**
  * dom
  * shrink: 地图简称
@@ -32,9 +36,9 @@ export function useRenderGeo(dom: HTMLElement, shrink: string, geoData: any, ini
           show: true, // 显示文本
         },
         itemStyle: {
-          areaColor: '#f00',
-          color: '#f00',
-          borderColor: '#000',
+          areaColor,
+          color,
+          borderColor,
           borderType: 'dotted',
           shadowColor: 'rgba(0, 0, 0, 0.5)',
           shadowBlur: 20,
