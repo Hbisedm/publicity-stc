@@ -2,6 +2,12 @@
 import { ref, watchEffect } from 'vue'
 import { useShufflingStore } from '@/stores/useShuffling'
 
+defineProps({
+  titleFloat: {
+    type: String,
+  },
+})
+
 const test = ref([
   { title: '标签1', content: '内容1' },
   { title: '标签2', content: '内容2' },
@@ -20,9 +26,14 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div>{{ test[index].title }}122</div>
+  <h2 :class="titleFloat">
+    {{ test[index].title }}122
+  </h2>
+  <div>{{ test[index].content }}</div>
 </template>
 
-<style lang="sass" scoped>
-
+<style lang="scss" scoped>
+.right {
+  text-align: right;
+}
 </style>
