@@ -1,21 +1,19 @@
 <script setup lang="ts">
-// pinia
 import { defineProps, ref } from 'vue'
-import { useShufflingStore } from '@/stores/useShuffling'
 import type { IShufflingImg } from '@/interface'
-
 defineProps<{
   imgs?: IShufflingImg[]
 }>()
 
-const emit = defineEmits(['change'])
+const emit = defineEmits<{
+  (e: 'change', changeIndex: Function): void
+  (e: 'update:index', shufflingIndex: number): void
+}>()
 
 const carousel = ref(null)
 
-const changeTopIndex = useShufflingStore()
-
 const changeShuffling = (index: number) => {
-  changeTopIndex.changeIndex(index)
+  emit('update:index', index)
 }
 
 const changeIndex = (index: number) => {
@@ -65,5 +63,11 @@ const handleClick = () => {
 }
 .wrapper {
   width: 100vw;
+}
+
+.relative img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 </style>
