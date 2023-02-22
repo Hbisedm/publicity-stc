@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     ElLink: typeof import('element-plus/es')['ElLink']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Introduce: typeof import('./src/components/Introduce.vue')['default']
+    LeftCurveLine: typeof import('./src/components/LeftCurveLine.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Shuffling: typeof import('./src/components/Shuffling.vue')['default']

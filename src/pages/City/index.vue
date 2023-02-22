@@ -23,7 +23,7 @@ useRenderGeo(city as any, 'ShanTou', ShanTou)
 
 <style scoped lang="scss">
 .container {
-  display: flex;
-  background: $bg-linear-gradient-color;
+  // display: flex;
+  // background: $bg-linear-gradient-color;
 }
 </style>
