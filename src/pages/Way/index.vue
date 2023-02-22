@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import Introduce from './components/Introduce.vue'
 import { way } from '@/dictionary'
-import leftCurveLine from '@/components/LeftCurveLine.vue'
 const { bannerUrl, title, desc } = way
 const bgCssVar = `url(${bannerUrl})`
 </script>
@@ -15,7 +15,15 @@ const bgCssVar = `url(${bannerUrl})`
         {{ desc }}
       </div>
     </div>
-    <left-curve-line />
+    <div class="content-bg">
+      <Introduce
+        v-for="(item, index) of way.way"
+        :key="index"
+        :type="index % 2 === 0 ? 'left' : 'right'"
+        :way="item"
+        :line="index !== way.way.length - 1"
+      />
+    </div>
   </div>
 </template>
 
@@ -48,6 +56,14 @@ const bgCssVar = `url(${bannerUrl})`
       display: inline-block;
       text-indent: 4em;
     }
+  }
+
+  .content-bg {
+    background: $bg-linear-gradient-color;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding: 20px;
   }
 
 }
