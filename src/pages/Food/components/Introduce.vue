@@ -24,5 +24,6 @@ defineProps<{
 }
 .desc {
   color: #ccc;
+  white-space: pre-wrap;
 }
 </style>

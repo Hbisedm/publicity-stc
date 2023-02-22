@@ -64,7 +64,7 @@ onMounted(() => {
     width: 50%;
     .top-content {
       width: 70%;
-      padding: 20px 0 0 70px;
+      padding: 3vw 0 0 4vw;
     }
   }
   // 顶部 end
@@ -77,7 +77,7 @@ onMounted(() => {
       width: 45%;
       .bottom-content {
         width: 70%;
-        padding: 20px 0 0 100px;
+        padding: 3vw 0 0 7vw;
       }
     }
 
