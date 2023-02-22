@@ -12,7 +12,9 @@ defineProps<{
   <h2 class="title" :class="titleFloat">
     {{ desc![contentIndex].foodName }}
   </h2>
-  <div class="desc">{{ desc![contentIndex].foodDesc }}</div>
+  <div class="desc">
+    {{ desc![contentIndex].foodDesc }}
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -25,5 +27,6 @@ defineProps<{
 .desc {
   color: #ccc;
   white-space: pre-wrap;
+  font-size: $desc-font-size;
 }
 </style>
