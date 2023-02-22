@@ -10,8 +10,7 @@
       </div>
     </div>
     <div class="flex flex-col">
-      <div>Footer desc</div>
-      <div>Footer desc</div>
+      <div>Copyright © 2022-2023 All rights reserved.</div>
     </div>
     <div>
       联系方式

@@ -3,17 +3,16 @@ import { defineProps, ref } from 'vue'
 import { useScroll } from '@vueuse/core'
 import type { IRotograph } from '@/interface'
 
-defineProps<{
+const props = defineProps<{
   data: IRotograph[]
 }>()
 
 const scrollContainer = ref<HTMLElement | null>(null)
-const activeIndex = ref(0)
+const activeId = ref(props.data[0].id)
 const { x } = useScroll(scrollContainer, { behavior: 'smooth' })
-const leftWidth = window.innerWidth * 0.28
-const moveWidth = 300
+const moveWidth = 250 // 移动距离
 function handleClick(index: number) {
-  activeIndex.value = index
+  activeId.value = index
 
   // 根据当前index 判断移动距离
   const moveX = index > 0 ? (index - 0) * moveWidth : 0
@@ -25,13 +24,13 @@ function handleClick(index: number) {
   <div class="rotograh-containier">
     <div ref="scrollContainer" class="rotograh-imgs">
       <div v-for="(item, index) of data" :key="index" class="rotograh-img-box">
-        <img :src="item.url" class="rotograh-img" :class="{ active: activeIndex === index }" @click="handleClick(index)">
+        <img :src="item.url" class="rotograh-img" :class="{ active: activeId === item.id }" @click="handleClick(item.id)">
         <label class="rotograh-label">{{ item.name }}</label>
       </div>
     </div>
-    <el-link class="link">
+    <router-link :to="`/scenicDetail/${activeId}`" class="link">
       了解更多
-    </el-link>
+    </router-link>
   </div>
 </template>
 
@@ -39,7 +38,7 @@ function handleClick(index: number) {
 $common-width: 200px;
 $common-height: 300px;
 $active-width: 300px;
-$active-height: 450px;
+$active-height: 460px;
 $margin-left: calc(78vw/2 - $active-width/1.5);
 
 .rotograh-containier {
@@ -74,26 +73,29 @@ $margin-left: calc(78vw/2 - $active-width/1.5);
               transition: 1s;
 
               &:hover {
-                  object-position: bottom right;
+                  // object-position: bottom right;
               }
 
           }
 
           .rotograh-label {
+            margin-top: 4px;
             color: $topic-color;
           }
 
           &:first-of-type {
-                margin-left: $active-width;
+                margin-left: $active-width + 250;
           }
 
           &:last-child {
-                margin-right: $active-width;
+                margin-right: $active-width + 250;
           }
 
           .active {
             width: $active-width;
             height: $active-height;
+            box-shadow: 0px 0px 30px  #000;
+            margin-bottom: 20px;
           }
         }
 
@@ -102,6 +104,7 @@ $margin-left: calc(78vw/2 - $active-width/1.5);
     .link {
       color: $topic-color;
       align-self: center;
+      text-decoration: none;
     }
 
 }

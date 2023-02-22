@@ -4,6 +4,7 @@ const Home = () => import('@/pages/Home/index.vue')
 const About = () => import('@/pages/About/index.vue')
 const Cover = () => import('@/pages/Cover/index.vue')
 const Scenic = () => import('@/pages/Scenic/index.vue')
+const scenicDetail = () => import('@/pages/Scenic/Detail.vue')
 const Food = () => import('@/pages/Food/index.vue')
 const Experience = () => import('@/pages/Experience/index.vue')
 const City = () => import('@/pages/City/index.vue')
@@ -51,5 +52,9 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: '/way',
     component: Way,
+  },
+  {
+    path: '/scenicDetail/:id',
+    component: scenicDetail,
   },
 ]
