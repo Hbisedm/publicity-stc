@@ -3,7 +3,7 @@ import Title from '../../../components/Title.vue'
 import { homeScenic } from '@/dictionary'
 import displayBreviaryBox from '@/components/DisplayBreviaryBox.vue'
 
-const title = '景点'
+const title = '休闲景点'
 </script>
 
 <template>

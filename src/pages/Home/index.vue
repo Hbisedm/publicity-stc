@@ -3,6 +3,7 @@ import { useWindowSize } from '@vueuse/core'
 import { computed } from 'vue'
 import Scenic from './components/Scenic.vue'
 // import Experience from './components/Experience.vue'
+import Finefood from './components/Finefood.vue'
 import Festival from './components/Festival.vue'
 import Itinerary from './components/Itinerary.vue'
 import { homeTopShuffling } from '@/dictionary'
@@ -26,6 +27,7 @@ const computedHeight = computed(() => {
     <Shuffling :height="`${computedHeight}px`" arrow="always" :interval="5000" :imgs="homeTopShuffling" @change="handleChangeIndex" />
     <Scenic />
     <!-- <Experience /> -->
+    <Finefood />
     <Festival />
     <Itinerary />
   </div>

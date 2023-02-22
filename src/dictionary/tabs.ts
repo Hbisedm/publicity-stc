@@ -10,7 +10,7 @@ export const tabs = [
     icon: 'none',
   },
   {
-    label: '景点',
+    label: '休闲景点',
     path: '/scenic',
     icon: 'none',
   },
