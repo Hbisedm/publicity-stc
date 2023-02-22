@@ -59,7 +59,7 @@ function handleMouseOver(index: number) {
         width: 100px;
         height: 100px;
         object-fit: cover;
-        transition: width .5s, height .5s, filter .5s;
+        transition: all .5s;
 
         &:hover {
           width: 120px;
@@ -72,11 +72,11 @@ function handleMouseOver(index: number) {
         z-index: 1;
         position: absolute;
         content: '';
-        width: 156%;
+        width: 180%;
         height: 10px;
         background-color: $topic-color;
         top: 50%;
-        left: -110%;
+        left: -160%;
       }
       &:nth-child(1) {
           &::before {
