@@ -7,14 +7,15 @@ const title = '美食'
 <template>
   <div class="box">
     <Title :title="title" />
-    <div class="container">
+    <div class="show-food-box">
       <div v-for="item in 10" :key="item" class="show-food">
-        <img src="../../../../public/images/hl.png" alt="">
+
+        <img class="auto-img" src="/images/hl.png" alt="">
+
         <div class="layer">
-          <div class="caption">
-            这是标题
-          </div>
+          <div class="caption"> 这是标题</div>
         </div>
+        
       </div>
     </div>
   </div>
@@ -26,27 +27,22 @@ const title = '美食'
   background: $bg-linear-gradient-color;
 }
 
-.container {
+.show-food-box {
   display: flex;
   flex-wrap: wrap;
 }
 
 .show-food {
-  width: calc(20% - 3px);
-  height: 17vw;
+  width: calc( 20% - 3px);
+  aspect-ratio: 1 / 1;
   cursor: pointer;
   position: relative;
   margin-right: 3px;
   margin-bottom: 3px;
-  background-color: skyblue;
   text-align: center;
   overflow: hidden;
   transition: all .35s;
 
-  img {
-    width: 100%;
-    height: auto;
-  }
 }
 
 .show-food:hover {
