@@ -16,6 +16,14 @@ $content-height: 88vh;
 // tab footer 高度
 $tab-height: 6vh;
 
+// 图片自适应
+.auto-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
 // 一些计算函数
 @function fact($number) {
     $value: 1;
