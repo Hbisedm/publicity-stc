@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRenderGeo } from './hooks/useRenderGeo'
+import LayoutGlobal from './components/LayoutGlobal.vue'
 import ShanTou from '@/assets/json/ShanTou.json'
 import { useMapData } from '@/stores/useMapData'
 
@@ -12,18 +13,28 @@ useRenderGeo(city as any, 'ShanTou', ShanTou)
 </script>
 
 <template>
-  <div class="container">
-    <div ref="city" class="h-xl" />
-    <h1>关于汕头</h1>
-    <div class="content">
-      ................desc...............
-    </div>
-  </div>
+  <LayoutGlobal>
+    <template #map>
+      <div ref="city" class="map" />
+    </template>
+    <template #content>
+      <div class="content">
+        <h1>关于汕头</h1>
+        <div>
+          ................desc...............
+        </div>
+      </div>
+    </template>
+  </LayoutGlobal>
 </template>
 
 <style scoped lang="scss">
-.container {
-  // display: flex;
-  // background: $bg-linear-gradient-color;
+.map {
+  width: 1000px;
+  height: 100%;
+}
+
+.content {
+  color: $topic-color
 }
 </style>

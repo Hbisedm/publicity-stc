@@ -5,13 +5,6 @@ import type { IHomeScenic } from '@/interface'
 defineProps<{
   item: IHomeScenic
 }>()
-
-// function handleMouseOver(dom: InputEvent, index: number) {
-//   console.log('mouse over')
-//   console.log(dom.target)
-//   const hh = dom.target
-//   console.log(hh)
-// }
 </script>
 
 <template>

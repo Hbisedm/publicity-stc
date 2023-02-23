@@ -8,7 +8,7 @@ const title = '休闲景点'
 
 <template>
   <div class="scenic-container">
-    <Title :title="title" />
+    <Title :title="title" path="/scenic" />
     <div class="wrapper">
       <display-breviary-box v-for="(item, index) in homeScenic" :key="index" :item="item" />
     </div>
@@ -18,7 +18,7 @@ const title = '休闲景点'
 <style scoped lang="scss">
 .scenic-container {
   padding: 20px 0;
-  background: $bg-linear-gradient-color;
+  background: $bg-linear-gradient-reversal-color;
 }
 .wrapper {
   margin: 0 5vw;

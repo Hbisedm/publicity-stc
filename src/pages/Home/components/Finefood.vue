@@ -6,16 +6,16 @@ const title = '美食'
 
 <template>
   <div class="box">
-    <Title :title="title" />
+    <Title :title="title" path="/food" />
     <div class="show-food-box">
       <div v-for="item in 10" :key="item" class="show-food">
-
         <img class="auto-img" src="/images/hl.png" alt="">
 
         <div class="layer">
-          <div class="caption"> 这是标题</div>
+          <div class="caption">
+            这是标题
+          </div>
         </div>
-        
       </div>
     </div>
   </div>

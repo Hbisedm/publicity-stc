@@ -2,10 +2,13 @@
 import { defineProps } from 'vue'
 import { useAnimations } from '@/hooks/useAnimation'
 
-defineProps<{
+withDefaults(defineProps<{
   title: string
+  path?: string
 }
->()
+>(), {
+  path: '/',
+})
 
 useAnimations([
   {
@@ -32,9 +35,9 @@ useAnimations([
         <h1 class="caption">
           {{ title }}
         </h1>
-        <el-link>
+        <router-link :to="path" class="link">
           了解更多
-        </el-link>
+        </router-link>
       </div>
     </div>
   </div>
@@ -97,6 +100,11 @@ $border-radius: 0px;
     .caption{
       margin-top: 15px;
       margin-bottom: 10px;
+    }
+
+    .link {
+      color: $topic-color;
+      text-decoration: none;
     }
   }
 }

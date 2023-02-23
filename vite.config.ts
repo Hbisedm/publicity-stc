@@ -14,7 +14,11 @@ export default defineConfig({
   plugins: [
     vue(),
     Unocss({
-      presets: [presetUno(), presetAttributify(), presetIcons()],
+      presets: [presetUno(), presetAttributify(), presetIcons({
+        collections: {
+          carbon: () => import('@iconify-json/carbon/index.js').then(i => i.icons as any),
+        },
+      })],
     }),
     AutoImport({
       resolvers: [ElementPlusResolver()],

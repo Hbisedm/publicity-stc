@@ -14,7 +14,7 @@ function handleMouseOver(index: number) {
 
 <template>
   <div class="wrapper">
-    <Title :title="title" />
+    <Title :title="title" path="/way" />
     <div class="itinerary-order">
       <div v-for="(item, index) of homeItinerary" :key="index" class="itinerary-order-box">
         <img :src="item.icon" :alt="item.title" class="itinerary-order-icon" @mouseover="handleMouseOver(index)">

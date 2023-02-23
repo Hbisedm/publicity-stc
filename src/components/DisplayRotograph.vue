@@ -8,27 +8,29 @@ const props = defineProps<{
 }>()
 
 const scrollContainer = ref<HTMLElement | null>(null)
-const activeId = ref(props.data[0].id)
+const activeData = ref(props.data[0]) // 第一个数据
 const { x } = useScroll(scrollContainer, { behavior: 'smooth' })
 const moveWidth = 250 // 移动距离
-function handleClick(index: number) {
-  activeId.value = index
-
+function handleClick(index: number, data: IRotograph) {
+  activeData.value = data
   // 根据当前index 判断移动距离
-  const moveX = index > 0 ? (index - 0) * moveWidth : 0
+  const moveX = index > 0 ? index * moveWidth : 0
   x.value = moveX
 }
 </script>
 
 <template>
-  <div class="rotograh-containier">
+  <div class="rotograh-container">
     <div ref="scrollContainer" class="rotograh-imgs">
       <div v-for="(item, index) of data" :key="index" class="rotograh-img-box">
-        <img :src="item.url" class="rotograh-img" :class="{ active: activeId === item.id }" @click="handleClick(item.id)">
+        <img :src="item.url" class="rotograh-img" :class="{ active: activeData.id === item.id }" @click="handleClick(index, item)">
         <label class="rotograh-label">{{ item.name }}</label>
       </div>
     </div>
-    <router-link :to="`/scenicDetail/${activeId}`" class="link">
+    <div class="desc">
+      <span>{{ activeData.desc }}</span>
+    </div>
+    <router-link :to="`/scenicDetail/${activeData.id}`" class="link">
       了解更多
     </router-link>
   </div>
@@ -39,13 +41,17 @@ $common-width: 200px;
 $common-height: 300px;
 $active-width: 300px;
 $active-height: 460px;
-$margin-left: calc(78vw/2 - $active-width/1.5);
+$margin-left: calc(72vw/2 - $active-width/1.5);
 
-.rotograh-containier {
+.rotograh-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: $content-height;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 40px;
+
     .rotograh-imgs {
         display: flex;
         position: relative;
@@ -99,6 +105,24 @@ $margin-left: calc(78vw/2 - $active-width/1.5);
           }
         }
 
+    }
+
+    .desc {
+      background-color: rgba($color: $topic-color, $alpha: .3);
+      color: $topic-color;
+      font-size: $desc-font-size;
+      line-height: 1.8 * $desc-font-size;
+      border-radius: $border-radius;
+      padding: 20px ;
+      > span {
+        text-indent: 2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+
+      }
     }
 
     .link {
