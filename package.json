@@ -28,6 +28,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.2",
     "@iconify-json/carbon": "^1.1.15",
+    "@iconify-json/material-symbols": "^1.1.32",
     "@types/echarts": "^4.9.16",
     "@types/node": "^18.13.0",
     "@types/scrollreveal": "^0.0.8",
