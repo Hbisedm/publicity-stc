@@ -6,6 +6,7 @@ import Scenic from './components/Scenic.vue'
 import Finefood from './components/Finefood.vue'
 import Festival from './components/Festival.vue'
 import Itinerary from './components/Itinerary.vue'
+import Dwellings from './components/Dwellings.vue'
 import { homeTopShuffling } from '@/dictionary'
 
 const handleChangeIndex = (func: Function) => {
@@ -29,6 +30,7 @@ const computedHeight = computed(() => {
     <!-- <Experience /> -->
     <Finefood />
     <Festival />
+    <Dwellings />
     <Itinerary />
   </div>
 </template>

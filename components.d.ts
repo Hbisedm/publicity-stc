@@ -16,7 +16,6 @@ declare module '@vue/runtime-core' {
     ElLink: typeof import('element-plus/es')['ElLink']
     Footer: typeof import('./src/components/Footer.vue')['default']
     IndicatorProgress: typeof import('./src/components/IndicatorProgress.vue')['default']
-    Progress: typeof import('./src/components/Progress.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Shuffling: typeof import('./src/components/Shuffling.vue')['default']
