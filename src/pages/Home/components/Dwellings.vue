@@ -1,7 +1,12 @@
 <script setup>
+import { Icon } from '@iconify/vue'
 import Title from '@/components/Title.vue'
 
 const title = '传统民居'
+
+const enterDetail = () => {
+  console.log('跳转')
+}
 </script>
 
 <template>
@@ -19,6 +24,10 @@ const title = '传统民居'
           <div class="right-title">
             皇宫起
           </div>
+        </div>
+        <div class="enter" @click="enterDetail">
+          <span class="enter-text">进去看看</span>
+          <Icon icon="material-symbols:door-open-outline" color="#f7e8d5" width="38" height="38" />
         </div>
       </div>
       <div class="content-img">
@@ -64,10 +73,41 @@ const title = '传统民居'
   padding-top: 180px;
   font-weight: bold;
   font-size: 90px;
-  color: #fff;
+  color: #f7e8d5;
   // background-color: pink;
   align-self: flex-end;
 
+  mask: radial-gradient(circle at 0% 0%, #000, transparent 40%);
+    animation: scale 20s infinite;
+
+}
+
+@keyframes scale {
+    0% {
+        mask-size: 100% 100%;
+    }
+    60%,
+    100% {
+        mask-size: 850% 1000%;
+    }
+}
+
+.enter {
+  display: flex;
+  align-self: center;
+  font-size: 28px;
+  padding: 120px 30px 0 15px;
+  color: #f7e8d5;
+  cursor: pointer;
+  // background-color: yellow;
+  border-bottom: 5px solid #fce7cd;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 20px;
+}
+
+.enter-text {
+  margin-right: 10px;
+  padding-bottom: 16px;
 }
 
 .right-title {
