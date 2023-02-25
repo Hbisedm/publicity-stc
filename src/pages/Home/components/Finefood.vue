@@ -72,6 +72,7 @@ const title = '美食'
   top: 240px;
   text-align: center;
   padding: 2px 5px;
+  border-top-left-radius: 50px;
   transition: all 1s;
 }
 
