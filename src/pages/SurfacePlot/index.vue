@@ -67,6 +67,7 @@ const enterHome = (): void => {
   padding-right: 120px;
   color: #fff;
   background-color: pink;
+  user-select: none;
 
 }
 
