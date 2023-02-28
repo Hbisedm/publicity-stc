@@ -1,7 +1,8 @@
-interface IFood {
+import type { IShufflingImg } from '.'
+
+interface IFood extends IShufflingImg {
   foodName: string // 美食名称
-  foodImgs: string[] // 美食图片
   foodDesc: string // 美食描述
 }
 
-export { IFood }
+export type { IFood }

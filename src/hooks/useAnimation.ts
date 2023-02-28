@@ -21,24 +21,22 @@ interface IAnimationItem {
   options: IOption
 }
 /**
- * 创建 ScrollReveal options配置对象
+ * 创建 ScrollReveal options配置对象
  */
-function createScrollRevealObjectOptions(options: ScrollRevealObjectOptions) {
+function createScrollRevealObjectOptions(options: IOption) {
   return {
     reset: options.reset,
     mobile: true,
     delay: 500,
-    afterReset(el) { // 离开视图时重置，移除动画类名
-      el.classList.remove('animate__animated')
-      el.classList.remove(options.animated)
+    afterReset(domEl: HTMLElement) { // 离开视图时重置，移除动画类名
+      domEl.classList.remove('animate__animated')
+      domEl.classList.remove(options.animated)
     },
-    beforeReveal(el) { // 到达视图时触发，增加动画类名，添加执行动画时常
+    beforeReveal(el: HTMLElement) { // 到达视图时触发，增加动画类名，添加执行动画时常
       el.classList.add('animated__animated')
       el.classList.add(options.animated)
-      if (options.duration) {
-        el.style['animation-duration'] = `${options.duration}s`
-        el.style['-webkit-animation-duration'] = `${options.duration}s`
-      }
+      if (options.duration)
+        el.style.animationDuration = `${options.duration}s`
     },
   }
 }

@@ -57,15 +57,16 @@ $margin-left: calc(72vw/2 - $active-width/1.5);
         position: relative;
         overflow-x: hidden;
         align-items: flex-end;
-        height: $active-height;
+        height: $active-height + 100;
         position: relative;
+        flex-shrink: 0;
 
         .rotograh-img-box {
           flex-shrink: 0;
           display: flex;
           flex-direction: column;
           width: $active-width;
-          height: $active-height;
+          height: $active-height + 100;
           align-items: center;
           justify-content: center;
 
@@ -75,7 +76,7 @@ $margin-left: calc(72vw/2 - $active-width/1.5);
               height: $common-height;
               border-radius: 4px;
               object-fit: cover;
-              object-position: top left;
+              object-position: top center;
               transition: 1s;
 
               &:hover {

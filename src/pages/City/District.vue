@@ -5,7 +5,7 @@ import { useRenderGeo } from './hooks/useRenderGeo'
 import LayoutGlobal from './components/LayoutGlobal.vue'
 import { useMapData } from '@/stores/useMapData'
 
-const district = ref<null | HTMLElement>(null)
+const district = ref<null | HTMLElement>(null)!
 
 const presentGeoStore = useMapData()
 
@@ -18,7 +18,7 @@ function handleBack() {
 presentGeoStore.presentGeo?.mapData.then((res: any) => {
   const targetMap = res.default
   nextTick(() => {
-    useRenderGeo(district as any, presentGeoStore.presentGeo.shrink, targetMap, false)
+    useRenderGeo(district, presentGeoStore.presentGeo!.shrink, targetMap, false)
   })
 })
 </script>
@@ -31,9 +31,9 @@ presentGeoStore.presentGeo?.mapData.then((res: any) => {
       </template>
       <template #content>
         <div class="content">
-          <h1>{{ presentGeoStore.presentGeo.name }}</h1>
+          <h1>{{ presentGeoStore.presentGeo?.name }}</h1>
           {{
-            presentGeoStore.presentGeo.desc
+            presentGeoStore.presentGeo?.desc
           }}
         </div>
       </template>

@@ -5,7 +5,7 @@ import { getCurrentInstance } from 'vue'
  * 可在main.ts中挂载
  */
 export default function useGetGlobalProperties() {
-  const { appContext: { app: { config: { globalProperties } } } } = getCurrentInstance()
+  const { appContext: { app: { config: { globalProperties } } } } = getCurrentInstance()!
 
   return { ...globalProperties }
 }

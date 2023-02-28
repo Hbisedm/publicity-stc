@@ -2,7 +2,6 @@ import type { RouteRecordRaw } from 'vue-router'
 
 const Home = () => import('@/pages/Home/index.vue')
 const About = () => import('@/pages/About/index.vue')
-const Cover = () => import('@/pages/Cover/index.vue')
 const Scenic = () => import('@/pages/Scenic/index.vue')
 const scenicDetail = () => import('@/pages/Scenic/Detail.vue')
 const Food = () => import('@/pages/Food/index.vue')
@@ -25,9 +24,6 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: '/about',
     component: About,
-  }, {
-    path: '/cover',
-    component: Cover,
   },
   {
     path: '/demo',

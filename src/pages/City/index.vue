@@ -9,7 +9,7 @@ const city = ref<null | HTMLElement>(null)
 
 const presentGeoStore = useMapData()
 
-useRenderGeo(city as any, 'ShanTou', ShanTou)
+useRenderGeo(city, 'ShanTou', ShanTou)
 </script>
 
 <template>

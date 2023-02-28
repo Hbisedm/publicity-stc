@@ -1,3 +1,4 @@
+import type { Ref } from 'vue'
 import { onBeforeUnmount, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useMapData } from '@/stores/useMapData'
@@ -15,7 +16,7 @@ const borderColor = '#0f0'
  * geoData: 地图数据
  * initial: 是否初始化
  */
-export function useRenderGeo(dom: HTMLElement, shrink: string, geoData: any, initial = true) {
+export function useRenderGeo(dom: Ref<HTMLElement | null>, shrink: string, geoData: any, initial = true) {
   const router = useRouter()
   const mapDataStore = useMapData()
   function bingEcharts() {
@@ -29,8 +30,8 @@ export function useRenderGeo(dom: HTMLElement, shrink: string, geoData: any, ini
         show: true,
         map: shrink, // 引入地图数据
         projection: {
-          project: point => [point[0] / 180 * Math.PI, -Math.log(Math.tan((Math.PI / 2 + point[1] / 180 * Math.PI) / 2))],
-          unproject: point => [point[0] * 180 / Math.PI, 2 * 180 / Math.PI * Math.atan(Math.exp(point[1])) - 90],
+          project: (point: any) => [point[0] / 180 * Math.PI, -Math.log(Math.tan((Math.PI / 2 + point[1] / 180 * Math.PI) / 2))],
+          unproject: (point: any) => [point[0] * 180 / Math.PI, 2 * 180 / Math.PI * Math.atan(Math.exp(point[1])) - 90],
         },
         label: {
           show: true, // 显示文本
@@ -55,7 +56,7 @@ export function useRenderGeo(dom: HTMLElement, shrink: string, geoData: any, ini
     if (initial) {
       // 监听事件
       myChart.on('click', (params) => {
-        const target = districtMap.find(item => item.name === params.name)
+        const target = districtMap.find(item => item.name === params.name)!
         // 拿到行政区数据
         mapDataStore.changePresentDistrict(target)
         router.push({

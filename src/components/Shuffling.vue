@@ -10,7 +10,7 @@ const emit = defineEmits<{
   (e: 'update:index', shufflingIndex: number): void
 }>()
 
-const carousel = ref(null)
+const carousel = ref<null | any>(null)
 
 const changeShuffling = (index: number) => {
   emit('update:index', index)
@@ -64,5 +64,4 @@ const handleClick = () => {
 .wrapper {
   width: 100vw;
 }
-
 </style>

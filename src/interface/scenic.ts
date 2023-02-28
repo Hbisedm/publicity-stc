@@ -1,3 +1,5 @@
+import type { IShufflingImg } from '.'
+
 export interface IScenic {
   name: string
   desc: string

@@ -29,4 +29,4 @@ interface IHomeItinerary {
   desc: string
 }
 
-export { IHomeScenic, IHomeFestival, IHomeItinerary }
+export type { IHomeScenic, IHomeFestival, IHomeItinerary }

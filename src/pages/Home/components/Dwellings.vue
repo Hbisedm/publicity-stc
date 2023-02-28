@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import { Icon } from '@iconify/vue'
 import Title from '@/components/Title.vue'
 
@@ -31,7 +31,7 @@ const enterDetail = () => {
         </div>
       </div>
       <div class="content-img">
-        <img src="../../../../public//images/mj.jpg" alt="">
+        <img src="/images/mj.jpg" alt="">
         <div class="shade" />
       </div>
     </div>

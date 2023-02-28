@@ -1,5 +1,5 @@
-export type { IFood } from './food.ts'
-export type { IShufflingImg } from './Shuffling.ts'
-export type { IHomeScenic, IHomeFestival, IHomeItinerary } from './home.ts'
+export type { IFood } from './food'
+export type { IShufflingImg } from './Shuffling'
+export type { IHomeScenic, IHomeFestival, IHomeItinerary } from './home'
 export type { IWay, IWayItem } from './way'
 export type { IRotograph, IScenic } from './scenic'

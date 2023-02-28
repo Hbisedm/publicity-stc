@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-interface GeoType {
+export interface GeoType {
   type: string
   features: {
     type: string
@@ -21,9 +21,9 @@ interface GeoType {
   }[]
 }
 
-interface IGeo {
+export interface IGeo {
   name: string
-  mapData: Promise
+  mapData: Promise<GeoType>
   shrink: string
   desc: string
 }
@@ -32,9 +32,9 @@ interface IGeo {
  * 使用行政区地图数据
  */
 export const useMapData = defineStore('district', () => {
-  const presentGeo = ref<IGeo>(null)
+  const presentGeo = ref<IGeo | null>(null)
 
-  function changePresentDistrict(data: GeoType) {
+  function changePresentDistrict(data: IGeo) {
     presentGeo.value = data
   }
 
