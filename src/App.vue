@@ -25,7 +25,7 @@ if (window.name === 'isRefresh')
     </div>
     <div class="surface-box" :class="{ isRemoveShade: confirmEnter, hiddenPage: isHiddenPage }">
       <div :class="{ animation: confirmEnter }">
-        <SurfacePlot @enterHome="isEnter" />
+        <SurfacePlot :handle-enter-home="isEnter" />
       </div>
     </div>
   </div>
