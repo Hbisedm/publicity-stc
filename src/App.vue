@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import mobile from 'is-mobile'
 import Tab from '@/components/Tab.vue'
 import Footer from '@/components/Footer.vue'
 import SurfacePlot from '@/pages/SurfacePlot/index.vue'
 
 const confirmEnter = ref<boolean>(false)
 const isHiddenPage = ref<boolean>(false)
+
+const dialogVisible = ref(false)
+
+onMounted(() => {
+  dialogVisible.value = mobile()
+})
 
 const isEnter = (): void => {
   confirmEnter.value = true
@@ -23,6 +30,14 @@ if (window.name === 'isRefresh')
       <router-view />
       <Footer />
     </div>
+    <el-dialog v-model="dialogVisible" title="Tips" width="80%" draggable>
+      <span>很抱歉,暂时为适配移动端,请在电脑端打开此网页体验更加!</span>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button type="primary" @click="dialogVisible = false">确定</el-button>
+        </span>
+      </template>
+    </el-dialog>
     <div class="surface-box" :class="{ isRemoveShade: confirmEnter, hiddenPage: isHiddenPage }">
       <div :class="{ animation: confirmEnter }">
         <SurfacePlot @enterHome="isEnter" />

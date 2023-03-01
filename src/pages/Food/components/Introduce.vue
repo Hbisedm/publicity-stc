@@ -25,7 +25,7 @@ defineProps<{
   color: #fff;
 }
 .desc {
-  color: #ccc;
+  color: $desc-font-color;
   white-space: pre-wrap;
   font-size: $desc-font-size;
 }

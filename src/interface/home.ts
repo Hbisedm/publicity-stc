@@ -1,4 +1,5 @@
 interface IHomeScenic {
+  id: number
   name: string
   masterDiagram: string // 主图
   accessoryDiagram: {

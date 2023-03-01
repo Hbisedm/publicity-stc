@@ -21,9 +21,7 @@ const handleOutSideSite = () => {
 <template>
   <div class="linear-gradient-bg flex items-center w-screen justify-around bg-coolGray-1">
     <div class=" m-l-4 flex m-r-auto  " title="logo">
-      <div class="m-auto color-white" @click="router.push({ path: '/home' })">
-        LOGO
-      </div>
+      <logo />
     </div>
     <ul class="list-none m-0 p-0">
       <el-link v-for="(item, index) of reactiveTabs" :key="index" class="float-left m-r-6 m-l-3" @click="handleRouter(item.path)">
@@ -44,5 +42,6 @@ const handleOutSideSite = () => {
   .tab {
     color: $topic-color;
   }
+
 }
 </style>

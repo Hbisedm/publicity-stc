@@ -1,16 +1,22 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import Title from '../../../components/Title.vue'
 import { homeScenic } from '@/dictionary'
 import displayBreviaryBox from '@/components/DisplayBreviaryBox.vue'
 
 const title = '休闲景点'
+const router = useRouter()
+
+function handleToDetail(id: number) {
+  router.push(`/scenicDetail/${id}`)
+}
 </script>
 
 <template>
   <div class="scenic-container">
     <Title :title="title" path="/scenic" />
     <div class="wrapper">
-      <display-breviary-box v-for="(item, index) in homeScenic" :key="index" :item="item" />
+      <display-breviary-box v-for="(item) in homeScenic" :key="item.id" :item="item" @click="handleToDetail(item.id)" />
     </div>
   </div>
 </template>

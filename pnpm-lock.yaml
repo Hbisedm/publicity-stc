@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': ^0.35.2
+  '@iconify-json/bi': ^1.1.15
   '@iconify-json/carbon': ^1.1.15
   '@iconify-json/material-symbols': ^1.1.32
   '@iconify/vue': ^4.1.0
@@ -17,6 +18,7 @@ specifiers:
   echarts: ^5.4.1
   element-plus: ^2.2.30
   eslint: ^8.34.0
+  is-mobile: ^3.1.1
   pinia: ^2.0.30
   postcss-preset-env: ^8.0.1
   postcss-px-to-viewport: ^1.1.1
@@ -38,6 +40,7 @@ dependencies:
   animate.css: 4.1.1
   echarts: 5.4.1
   element-plus: registry.npmmirror.com/element-plus/2.2.30_vue@3.2.47
+  is-mobile: 3.1.1
   pinia: 2.0.30_hmuptsblhheur2tugfgucj7gc4
   postcss-px-to-viewport: 1.1.1
   scrollreveal: 4.0.9
@@ -46,6 +49,7 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config': 0.35.2_7kw3g6rralp5ps6mg3uyzz6azm
+  '@iconify-json/bi': 1.1.15
   '@iconify-json/carbon': 1.1.15
   '@iconify-json/material-symbols': registry.npmmirror.com/@iconify-json/material-symbols/1.1.32
   '@iconify/vue': registry.npmmirror.com/@iconify/vue/4.1.0_vue@3.2.47
@@ -701,6 +705,12 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify-json/bi/1.1.15:
+    resolution: {integrity: sha512-NsbDeTVIYwgPLyAT0UgzuaCl79V65Z+M319BjbdEwdnbDGuaYgmAMBJUIWrnBEVoEg7rtouAuvaZRb3nIYIRcA==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify-json/carbon/1.1.15:
@@ -2726,6 +2736,10 @@ packages:
   /is-hexadecimal/1.0.4:
     resolution: {integrity: sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw==}
     dev: true
+
+  /is-mobile/3.1.1:
+    resolution: {integrity: sha512-RRoXXR2HNFxNkUnxtaBdGBXtFlUMFa06S0NUKf/LCF+MuGLu13gi9iBCkoEmc6+rpXuwi5Mso5V8Zf7mNynMBQ==}
+    dev: false
 
   /is-negative-zero/2.0.2:
     resolution: {integrity: sha512-dqJvarLawXsFbNDeJW7zAz8ItJ9cd28YufuuFzh0G8pNHjJMnY08Dv7sYX2uF5UpQOwieAeOExEYAWWfu7ZZUA==}

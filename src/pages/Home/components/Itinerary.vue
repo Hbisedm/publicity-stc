@@ -23,10 +23,12 @@ function handleMouseOver(index: number) {
     <div class="itinerary-desc" :style="{ flexFlow: presentIndex >= 3 ? 'row-reverse' : 'nowrap' }">
       <Shuffling class="itinerary-desc-shuffling" />
       <div class="itinerary-desc-content">
-        <h1 align="center">
+        <h1 class="itinerary-desc-content-title" align="center">
           {{ presentItinerary.title }}
         </h1>
-        {{ presentItinerary.desc }}
+        <span class="itinerary-desc-content-desc">
+          {{ presentItinerary.desc }}
+        </span>
       </div>
     </div>
   </div>
@@ -100,6 +102,14 @@ function handleMouseOver(index: number) {
     .itinerary-desc-content {
       margin:0  2.5vw;
       width: 45vw;
+
+      &-title {
+        font-size: 36px;
+      }
+
+      &-desc {
+        font-size: 12px;
+      }
     }
 
   }

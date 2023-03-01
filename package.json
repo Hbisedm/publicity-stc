@@ -1,7 +1,7 @@
 {
-  "name": "mogu-shop",
+  "name": "stc",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "repository": {
     "type": "git",
@@ -12,7 +12,8 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "deploy:osrc": "pnpm build && osrc deploy -d dist"
   },
   "dependencies": {
     "@types/scrollreveal": "^0.0.8",
@@ -20,6 +21,7 @@
     "animate.css": "^4.1.1",
     "echarts": "^5.4.1",
     "element-plus": "^2.2.30",
+    "is-mobile": "^3.1.1",
     "pinia": "^2.0.30",
     "postcss-px-to-viewport": "^1.1.1",
     "scrollreveal": "^4.0.9",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.2",
+    "@iconify-json/bi": "^1.1.15",
     "@iconify-json/carbon": "^1.1.15",
     "@iconify-json/material-symbols": "^1.1.32",
     "@iconify/vue": "^4.1.0",

@@ -97,14 +97,17 @@ $border-radius: 0px;
     color: $topic-color;
     margin: 0;
     text-align: center;
+    line-height: 50px;
     .caption{
-      margin-top: 15px;
-      margin-bottom: 10px;
+      margin-top: 10px;
+      margin-bottom: 0px;
+      font-size: 50px;
     }
 
     .link {
       color: $topic-color;
       text-decoration: none;
+      font-size: 12px;
     }
   }
 }

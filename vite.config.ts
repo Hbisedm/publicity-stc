@@ -19,6 +19,7 @@ export default defineConfig({
           // carbon图标json文件 没有找到合适的 去找其他的json文件引入
           carbon: () => import('@iconify-json/carbon/index.js').then(i => i.icons as any),
           materialSymbols: () => import('@iconify-json/material-symbols/index.js').then(i => i.icons as any),
+          bi: () => import('@iconify-json/bi/index.js').then(i => i.icons as any),
         },
       })],
     }),

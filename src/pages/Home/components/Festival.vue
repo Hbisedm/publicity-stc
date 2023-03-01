@@ -42,7 +42,7 @@ useAnimations([
             <div v-for="(item, index) of homeFestival[0].desc" :key="index">
               {{ item }}
             </div>
-            <el-link>
+            <el-link class="link">
               更多详情
             </el-link>
           </div>
@@ -58,7 +58,7 @@ useAnimations([
             <div v-for="(item, index) of homeFestival[1].desc" :key="index">
               {{ item }}
             </div>
-            <el-link>
+            <el-link class="link">
               更多详情
             </el-link>
           </div>
@@ -146,8 +146,13 @@ $min-z-index: 1;
                     height: 60%;
                     display: flex;
                     flex-direction: column;
+                    font-size: 16px;
                     align-items: center;
                     justify-content: space-around;
+                }
+
+                .link {
+                  font-size: 12px;
                 }
             }
 
@@ -166,7 +171,7 @@ $min-z-index: 1;
                     left: -8vw;
                     &::before {
                         position: absolute;
-                        content: '⭕️';
+                        content: '';
                         width: 20px;
                         height: 20px;
                         top: -10px;
@@ -192,7 +197,7 @@ $min-z-index: 1;
 
                     &::before {
                         position: absolute;
-                        content: '⭕️';
+                        content: '';
                         width: 20px;
                         height: 20px;
                         top: -10px;

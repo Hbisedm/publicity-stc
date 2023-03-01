@@ -1,6 +1,59 @@
 import type { IRotograph } from '@/interface/index'
 export const rotographData: IRotograph[] = [
   {
+    id: 7,
+    url: 'https://s1.ax1x.com/2023/03/01/ppiBk7V.jpg',
+    shufflingImg: [
+      {
+        name: '',
+        url: 'https://s1.ax1x.com/2023/03/01/ppi05fe.jpg',
+        path: '',
+        outSideUrl: '',
+      },
+      {
+        name: '',
+        url: 'https://s1.ax1x.com/2023/03/01/ppi0qmt.jpg',
+        path: '',
+        outSideUrl: '',
+      },
+      {
+        name: '',
+        url: 'https://s1.ax1x.com/2023/03/01/ppi0oSH.jpg',
+        path: '',
+        outSideUrl: '',
+      }],
+    name: '汕头大学',
+    path: '/sec',
+    desc: 'aaaaaaaaaaaaaaa',
+    scenic: [
+      {
+        name: 'nnnn',
+        desc: '描述这个',
+        imgs: ['https://s1.ax1x.com/2023/03/01/ppi0HOI.jpg'],
+      },
+      {
+        name: 'nnnn',
+        desc: '描述这个',
+        imgs: ['https://s1.ax1x.com/2023/03/01/ppi076A.jpg'],
+      },
+      {
+        name: 'nnnn',
+        desc: '描述这个',
+        imgs: ['https://s1.ax1x.com/2023/03/01/ppi0HOI.jpg'],
+      },
+      {
+        name: 'nnnn',
+        desc: '描述这个',
+        imgs: ['https://s1.ax1x.com/2023/03/01/ppi0L0P.jpg'],
+      },
+
+      {
+        name: 'nnnn',
+        desc: '描述这个',
+        imgs: ['https://s1.ax1x.com/2023/03/01/ppi0Tld.jpg'],
+      }],
+  },
+  {
     id: 6,
     url: 'https://s1.ax1x.com/2023/02/28/ppPdMKx.jpg',
     shufflingImg: [
@@ -23,7 +76,7 @@ export const rotographData: IRotograph[] = [
       {
         name: 'nnnn',
         desc: '描述这个',
-        imgs: ['https://s1.ax1x.com/2023/02/28/ppPa2DK.jpg'],
+        imgs: ['https://s1.ax1x.com/2023/03/01/ppiBN1H.jpg'],
       }, {
         name: 'nnnn',
         desc: '描述这个',
@@ -125,17 +178,17 @@ export const rotographData: IRotograph[] = [
   },
   {
     id: 4,
-    url: 'https://s1.ax1x.com/2023/02/28/ppParC9.jpg',
+    url: 'https://s1.ax1x.com/2023/03/01/ppiB176.jpg',
     shufflingImg: [
       {
         name: '',
-        url: 'https://s1.ax1x.com/2023/02/17/pSqYWxx.jpg',
+        url: 'https://s1.ax1x.com/2023/03/01/ppirylQ.jpg',
         path: '',
         outSideUrl: '',
       },
       {
-        name: '汕头烟花',
-        url: 'https://s1.ax1x.com/2023/02/17/pSqY5qO.jpg',
+        name: '',
+        url: 'https://s1.ax1x.com/2023/03/01/ppirylQ.jpg',
         path: '',
         outSideUrl: '',
       }],

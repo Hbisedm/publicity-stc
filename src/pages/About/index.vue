@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import { Icon } from '@iconify/vue'
 </script>
 
 <template>
@@ -14,8 +14,11 @@
           一个待业人员和一个工作人员摸鱼的无聊举动：写个炫酷动画宣传自己城市网站...
         </div>
         <h1>联系我们</h1>
-        <div>
-          邮箱: hbisedm666@163.com
+        <div class="flex items-center">
+          <Icon icon="carbon:email" color="#f7e8d5" width="20" height="20" />
+          <span class="m-l-2">
+            hbisedm666@163.com
+          </span>
         </div>
         <h1>开发人员</h1>
         <div class="dev ">
@@ -24,6 +27,13 @@
           </el-link>
           <el-link class="link" href="https://github.com/Chen-QXuan">
             <img class="border-rd-36 w-16 h-16" src="https://avatars.githubusercontent.com/u/102030829?v=4">
+          </el-link>
+        </div>
+        <h1>资源出处</h1>
+        <div class="flex items-center">
+          <Icon icon="bi:sina-weibo" color="#f7e8d5" width="20" height="20" />
+          <el-link href="https://weibo.com/u/6483929142" class="m-l-2">
+            岛上邮报-
           </el-link>
         </div>
       </div>

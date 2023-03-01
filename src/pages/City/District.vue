@@ -32,9 +32,7 @@ presentGeoStore.presentGeo?.mapData.then((res: any) => {
       <template #content>
         <div class="content">
           <h1>{{ presentGeoStore.presentGeo?.name }}</h1>
-          {{
-            presentGeoStore.presentGeo?.desc
-          }}
+          <span class="desc-block">{{ presentGeoStore.presentGeo?.desc }}</span>
         </div>
       </template>
     </LayoutGlobal>
@@ -46,13 +44,10 @@ presentGeoStore.presentGeo?.mapData.then((res: any) => {
 </template>
 
 <style scoped lang="scss">
+@import "./styles/city.scss";
 .map {
   flex-shrink: 0;
   width: 1000px;
   height: 100%;
-}
-
-.content {
-  color: $topic-color
 }
 </style>
