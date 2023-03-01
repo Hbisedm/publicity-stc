@@ -1,16 +1,21 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-
-const emit = defineEmits(['enterHome'])
-
-const enterHome = (): void => {
-  emit('enterHome')
-}
+import { NCarousel } from 'naive-ui'
+import Subject from './components/Subject.vue'
 </script>
 
 <template>
   <div class="box">
-    <div class="item content-box">
+    <NCarousel :show-arrow="false" direction="vertical" dot-type="line" dot-placement="left">
+      <template v-for="item in 4" :key="item">
+        <Subject class="carousel-img" v-bind="$attrs" />
+      </template>
+      <template #dots="{ total, currentIndex, to }">
+        <ul class="custom-dots">
+          <li v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }" @click="to(index - 1)" />
+        </ul>
+      </template>
+    </NCarousel>
+  <!-- <div class="item content-box">
       <div class="title">
         Swatow
       </div>
@@ -22,7 +27,7 @@ const enterHome = (): void => {
           <div class="btn-text">
             进入专题
           </div>
-          <Icon icon="tabler:door-enter" color="white" width="28" height="28" :horizontal-flip="true" />
+          <Icon icon="tabler:door-enter" color="white" width="30" height="30" :horizontal-flip="true" />
         </div>
       </div>
       <div class="introduce">
@@ -30,19 +35,19 @@ const enterHome = (): void => {
           经济特区
         </div>
         <div class="introduce-item">
-          经济特区
-        </div>
-        <div class="introduce-item">
-          经济特区
-        </div>
-        <div class="introduce-item">
-          经济特区
+            经济特区
+          </div>
+          <div class="introduce-item">
+            经济特区
+          </div>
+          <div class="introduce-item">
+            经济特区
+          </div>
         </div>
       </div>
-    </div>
-    <div class="item shuffling-box">
-      2
-    </div>
+      <div class="item shuffling-box">
+        2
+      </div> -->
   </div>
 </template>
 
@@ -50,79 +55,39 @@ const enterHome = (): void => {
 .box {
   width: 100%;
   height: 100vh;
-  background: url('../../../public/images/home.png');
+  background: url('https://s1.ax1x.com/2023/02/17/pSqYWxx.jpg');
   background-size: 100% 100%;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.custom-dots {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 200px;
+  left: 20px;
 }
 
-.item {
-  height: 50%;
-}
-
-.content-box {
-
-  padding-right: 120px;
-  color: #fff;
-  background-color: pink;
-  user-select: none;
-
-}
-
-.title {
-  font-size: 150px;
-  font-weight: bold;
-  padding-top: 50px;
-  line-height: 140px;
-}
-
-.subhead-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-
-}
-
-.subhead {
-  /* width: 50%; */
-
-  font-size: 75px;
-  font-weight: bold;
-
-}
-
-.btn-box {
-  /* width: 50%; */
-  display: flex;
-  align-items: center;
-  height: 75px;
-  font-size: 24px;
-  padding: 0 40px;
-  border-radius: 50px 50px;
-  background-color: skyblue;
-  margin-top: 12px;
+.custom-dots li {
+  display: inline-block;
+  width: 6px;
+  height: 16px;
+  margin: 3px 0px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: width 0.3s, background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-
 }
 
-.btn-text {
-  margin-right: 10px;
-}
-
-.introduce {
-  display: flex;
-  padding-top: 10px;
-}
-
-.introduce-item {
-  padding-right: 30px;
-}
-
-.shuffling-box {
-  width: 45%;
-  background-color: skyblue;
+.custom-dots li.is-active {
+  height: 40px;
+  background: #fff;
 }
 </style>
