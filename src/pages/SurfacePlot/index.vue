@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
-import { NCarousel, NSteps, NStep } from 'naive-ui'
+import { NCarousel, NStep, NSteps } from 'naive-ui'
 import Subject from './components/Subject.vue'
 
+const emit = defineEmits(['handleEnterHome'])
 // 纵向轮播下标
 const currentRef = ref<number>(1)
-const emit = defineEmits(['handleEnterHome'])
 const enterHome = (): void => {
   emit('handleEnterHome')
 }
@@ -14,45 +14,39 @@ const enterHome = (): void => {
 const filpOver = (next: Function): void => {
   next()
 
-  if (currentRef.value! >= 4) {
+  if (currentRef.value! >= 4)
     currentRef.value = 1
-  } else {
-    currentRef.value!++
-  } 
-  console.log(currentRef.value);
-  
+  else currentRef.value!++
 }
-
 </script>
 
 <template>
   <div class="box">
     <NCarousel :show-arrow="true" direction="vertical" dot-type="line" dot-placement="left">
-    <Subject v-for="item in 4" :key="item" class="carousel-img" @confirmEnter="enterHome" />
-    <template #arrow="{ next }">
-        <div class="next" @click="filpOver(next)"></div>
-    </template>
-    <template #dots="{ total, currentIndex, to }">
-      <!-- <ul class="custom-dots">
+      <Subject v-for="item in 4" :key="item" class="carousel-img" @confirmEnter="enterHome" />
+      <template #arrow="{ next }">
+        <div class="next" @click="filpOver(next)" />
+      </template>
+      <template #dots="{ total, currentIndex, to }">
+        <!-- <ul class="custom-dots">
               <li v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }" @click="to(index - 1)" />
           </ul> -->
-      <NSteps v-model:current="currentRef" class="custom-dots" vertical size="small" >
-        <template #finish-icon>
-          <!-- <Icon /> -->
-          <Icon icon="tabler:door-enter" color="white" width="30" height="30" :horizontal-flip="true" />
-
-        </template>
-        <n-step v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }"
-          @click="to(index - 1)">
-          <template #icon>
-            <Icon />
+        <NSteps v-model:current="currentRef" class="custom-dots" vertical size="small">
+          <template #finish-icon>
+            <!-- <Icon /> -->
+            <Icon icon="tabler:door-enter" color="#102d66" width="30" height="30" :horizontal-flip="true" />
           </template>
-        </n-step>
-      </NSteps>
-      
-    </template>
-    
-  </NCarousel>
+          <NStep
+            v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }"
+            @click="to(index - 1)"
+          >
+            <template #icon>
+              <Icon />
+            </template>
+          </NStep>
+        </NSteps>
+      </template>
+    </NCarousel>
   <!-- <div class="item content-box">
       <div class="title">
         Swatow
@@ -130,21 +124,16 @@ const filpOver = (next: Function): void => {
   background: #fff;
 }
 
-
-
 /* 步骤条 */
 .n-steps .n-step-indicator {
   width: 20px !important;
   height: 20px !important;
 }
 
-
-
-
 .next {
   position: absolute;
-  top: 630px;
-  left: 60px;
+  top: 680px;
+  left: 64px;
   width: 0;
   height: 0;
   border: 10px solid transparent;
