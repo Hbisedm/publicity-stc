@@ -16,12 +16,12 @@ defineProps<{
       </div>
     </div>
     <div class="accessory">
-      <Fragments v-for="(accessory, index) of item.accessoryDiagram" :key="index" class="accessory-box">
+      <div v-for="(accessory, index) of item.accessoryDiagram" :key="index" class="accessory-box">
         <img :src="accessory.url" :alt="accessory.name" class="accessory-img">
         <div class="accessory-desc">
           {{ accessory.name }}
         </div>
-      </Fragments>
+      </div>
     </div>
   </div>
 </template>

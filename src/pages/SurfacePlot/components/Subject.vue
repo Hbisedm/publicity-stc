@@ -63,7 +63,7 @@ const enterHome = (): void => {
 
   padding-right: 120px;
   color: #fff;
-  background-color: pink;
+  // background-color: pink;
   user-select: none;
 
 }
@@ -120,6 +120,6 @@ const enterHome = (): void => {
 
 .shuffling-box {
   width: 45%;
-  background-color: skyblue;
+  // background-color: skyblue;
 }
 </style>
