@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { NCarousel } from 'naive-ui'
 import Subject from './components/Subject.vue'
+
+const emit = defineEmits(['handleEnterHome'])
+const enterHome = (): void => {
+  emit('handleEnterHome')
+}
 </script>
 
 <template>
   <div class="box">
     <NCarousel :show-arrow="false" direction="vertical" dot-type="line" dot-placement="left">
-      <Subject v-for="item in 4" :key="item" class="carousel-img" :handle-enter-home="$attrs.handleEnterHome as Function" />
+      <Subject v-for="item in 4" :key="item" class="carousel-img" @confirmEnter="enterHome" />
       <template #dots="{ total, currentIndex, to }">
         <ul class="custom-dots">
           <li v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }" @click="to(index - 1)" />

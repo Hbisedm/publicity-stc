@@ -1,12 +1,12 @@
 <script setup  lang="ts">
 import { Icon } from '@iconify/vue'
 
-const props = defineProps<{
-  handleEnterHome: Function
-}>()
+
+const emit = defineEmits(['confirmEnter'])
+
 
 const enterHome = (): void => {
-  props.handleEnterHome()
+  emit('confirmEnter')
 }
 </script>
 
