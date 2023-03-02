@@ -1,23 +1,58 @@
 <script setup lang="ts">
-import { NCarousel } from 'naive-ui'
+import { ref } from 'vue'
+import { Icon } from '@iconify/vue'
+import { NCarousel, NSteps, NStep } from 'naive-ui'
 import Subject from './components/Subject.vue'
 
+// 纵向轮播下标
+const currentRef = ref<number>(1)
 const emit = defineEmits(['handleEnterHome'])
 const enterHome = (): void => {
   emit('handleEnterHome')
 }
+
+const filpOver = (next: Function): void => {
+  next()
+
+  if (currentRef.value! >= 4) {
+    currentRef.value = 1
+  } else {
+    currentRef.value!++
+  } 
+  console.log(currentRef.value);
+  
+}
+
 </script>
 
 <template>
   <div class="box">
-    <NCarousel :show-arrow="false" direction="vertical" dot-type="line" dot-placement="left">
-      <Subject v-for="item in 4" :key="item" class="carousel-img" @confirmEnter="enterHome" />
-      <template #dots="{ total, currentIndex, to }">
-        <ul class="custom-dots">
-          <li v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }" @click="to(index - 1)" />
-        </ul>
-      </template>
-    </NCarousel>
+    <NCarousel :show-arrow="true" direction="vertical" dot-type="line" dot-placement="left">
+    <Subject v-for="item in 4" :key="item" class="carousel-img" @confirmEnter="enterHome" />
+    <template #arrow="{ next }">
+        <div class="next" @click="filpOver(next)"></div>
+    </template>
+    <template #dots="{ total, currentIndex, to }">
+      <!-- <ul class="custom-dots">
+              <li v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }" @click="to(index - 1)" />
+          </ul> -->
+      <NSteps v-model:current="currentRef" class="custom-dots" vertical size="small" >
+        <template #finish-icon>
+          <!-- <Icon /> -->
+          <Icon icon="tabler:door-enter" color="white" width="30" height="30" :horizontal-flip="true" />
+
+        </template>
+        <n-step v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }"
+          @click="to(index - 1)">
+          <template #icon>
+            <Icon />
+          </template>
+        </n-step>
+      </NSteps>
+      
+    </template>
+    
+  </NCarousel>
   <!-- <div class="item content-box">
       <div class="title">
         Swatow
@@ -31,30 +66,30 @@ const enterHome = (): void => {
             进入专题
           </div>
           <Icon icon="tabler:door-enter" color="white" width="30" height="30" :horizontal-flip="true" />
-        </div>
-      </div>
-      <div class="introduce">
-        <div class="introduce-item">
-          经济特区
-        </div>
-        <div class="introduce-item">
-            经济特区
+            </div>
           </div>
-          <div class="introduce-item">
-            经济特区
-          </div>
-          <div class="introduce-item">
-            经济特区
-          </div>
-        </div>
-      </div>
-      <div class="item shuffling-box">
-        2
-      </div> -->
+          <div class="introduce">
+            <div class="introduce-item">
+              经济特区
+            </div>
+            <div class="introduce-item">
+                  经济特区
+                </div>
+                  <div class="introduce-item">
+                      经济特区
+                    </div>
+                    <div class="introduce-item">
+                      经济特区
+                    </div>
+                  </div>
+                </div>
+                <div class="item shuffling-box">
+                  2
+                </div> -->
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .box {
   width: 100%;
   height: 100vh;
@@ -69,17 +104,18 @@ const enterHome = (): void => {
 }
 
 .custom-dots {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
+  width: auto;
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 200px;
-  left: 20px;
+  top: 240px;
+  left: 60px;
 }
 
 .custom-dots li {
-  display: inline-block;
+  // display: inline-block;
   width: 6px;
   height: 16px;
   margin: 3px 0px;
@@ -92,5 +128,61 @@ const enterHome = (): void => {
 .custom-dots li.is-active {
   height: 40px;
   background: #fff;
+}
+
+
+
+/* 步骤条 */
+.n-steps .n-step-indicator {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+
+
+
+.next {
+  position: absolute;
+  top: 630px;
+  left: 60px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 20px solid #102d66;
+  cursor: pointer;
+}
+
+.n-steps.n-steps--vertical:not(.n-steps--show-description)>.n-step {
+  padding-bottom: 80px !important;
+}
+
+.n-steps.n-steps--vertical>.n-step>.n-step-indicator>.n-step-splitor {
+  width: 3px !important;
+}
+
+.n-step.n-step--clickable.n-step--wait-status,
+.n-step.n-step--clickable.n-step--finish-status,
+.n-step.n-step--clickable.n-step--process-status.is-active {
+  --n-indicator-border-color: #102d66 !important;
+  --n-indicator-border-color: #102d66 !important;
+  --n-indicator-text-color: #102d66 !important;
+  --n-splitor-color: #102d66 !important;
+
+}
+
+.n-step-indicator {
+  background-color: #102d66 !important;
+  box-shadow: #102d66 !important;
+}
+
+.n-step.n-step--clickable.n-step--process-status.is-active {
+  --n-indicator-border-color: #102d66 !important;
+  --n-indicator-color: #102d66 !important;
+}
+
+.n-step.n-step--clickable.n-step--process-status {
+  --n-indicator-border-color: #102d66 !important;
+  --n-indicator-color: #102d66 !important;
+  --n-splitor-color: #102d66 !important;
 }
 </style>
