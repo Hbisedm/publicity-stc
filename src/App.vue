@@ -40,7 +40,7 @@ if (window.name === 'isRefresh')
     </el-dialog>
     <div class="surface-box" :class="{ isRemoveShade: confirmEnter, hiddenPage: isHiddenPage }">
       <div :class="{ animation: confirmEnter }">
-        <SurfacePlot :handle-enter-home="isEnter" />
+        <SurfacePlot @handleEnterHome="isEnter" />
       </div>
     </div>
   </div>
