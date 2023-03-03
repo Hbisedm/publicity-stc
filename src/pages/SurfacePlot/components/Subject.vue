@@ -1,9 +1,8 @@
 <script setup  lang="ts">
 import { Icon } from '@iconify/vue'
-
+import Accordion from '@/components/Accordion.vue'
 
 const emit = defineEmits(['confirmEnter'])
-
 
 const enterHome = (): void => {
   emit('confirmEnter')
@@ -43,7 +42,7 @@ const enterHome = (): void => {
       </div>
     </div>
     <div class="item shuffling-box">
-      2
+      <Accordion />
     </div>
   </div>
 </template>
@@ -61,7 +60,6 @@ const enterHome = (): void => {
 
 .content-box {
 
-  padding-right: 120px;
   color: #fff;
   // background-color: pink;
   user-select: none;
@@ -72,7 +70,7 @@ const enterHome = (): void => {
   font-size: 180px;
   font-weight: bold;
   padding-top: 50px;
-  line-height: 180px;
+  line-height: 140px;
 }
 
 .subhead-box {
@@ -101,6 +99,7 @@ const enterHome = (): void => {
   border-radius: 50px 50px;
   background-color: skyblue;
   margin-top: 12px;
+  margin-right: 24px;
   cursor: pointer;
 
 }
@@ -120,6 +119,9 @@ const enterHome = (): void => {
 
 .shuffling-box {
   width: 45%;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
   // background-color: skyblue;
 }
 </style>

@@ -23,23 +23,24 @@ const filpOver = (next: Function): void => {
 <template>
   <div class="box">
     <NCarousel :show-arrow="true" direction="vertical" dot-type="line" dot-placement="left">
+      <!-- 纵向轮播 -->
       <Subject v-for="item in 4" :key="item" class="carousel-img" @confirmEnter="enterHome" />
+
+      <!-- 下一页 -->
       <template #arrow="{ next }">
         <div class="next" @click="filpOver(next)" />
       </template>
+
+      <!-- 步骤条控制点 -->
       <template #dots="{ total, currentIndex, to }">
-        <!-- <ul class="custom-dots">
-              <li v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }" @click="to(index - 1)" />
-          </ul> -->
         <NSteps v-model:current="currentRef" class="custom-dots" vertical size="small">
+          <!-- 已翻页背景 icon -->
           <template #finish-icon>
-            <!-- <Icon /> -->
             <Icon icon="tabler:door-enter" color="#102d66" width="30" height="30" :horizontal-flip="true" />
           </template>
-          <NStep
-            v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }"
-            @click="to(index - 1)"
-          >
+
+          <NStep v-for="index of total" :key="index" :class="{ ['is-active']: currentIndex === index - 1 }" @click="to(index - 1)">
+            <!-- 当前页背景 icon -->
             <template #icon>
               <Icon />
             </template>
@@ -47,39 +48,6 @@ const filpOver = (next: Function): void => {
         </NSteps>
       </template>
     </NCarousel>
-  <!-- <div class="item content-box">
-      <div class="title">
-        Swatow
-      </div>
-      <div class="subhead-box">
-        <div class="subhead">
-          海滨小城
-        </div>
-        <div class="btn-box" @click="enterHome">
-          <div class="btn-text">
-            进入专题
-          </div>
-          <Icon icon="tabler:door-enter" color="white" width="30" height="30" :horizontal-flip="true" />
-            </div>
-          </div>
-          <div class="introduce">
-            <div class="introduce-item">
-              经济特区
-            </div>
-            <div class="introduce-item">
-                  经济特区
-                </div>
-                  <div class="introduce-item">
-                      经济特区
-                    </div>
-                    <div class="introduce-item">
-                      经济特区
-                    </div>
-                  </div>
-                </div>
-                <div class="item shuffling-box">
-                  2
-                </div> -->
   </div>
 </template>
 
