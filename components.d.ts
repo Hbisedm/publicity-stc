@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Accordion: typeof import('./src/components/Accordion.vue')['default']
     CurveLine: typeof import('./src/components/CurveLine.vue')['default']
     DisplayBreviaryBox: typeof import('./src/components/DisplayBreviaryBox.vue')['default']
     DisplayRotograph: typeof import('./src/components/DisplayRotograph.vue')['default']

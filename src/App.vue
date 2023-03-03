@@ -62,7 +62,7 @@ if (window.name === 'isRefresh')
   overflow-y: auto;
 }
 .recover {
-  animation: recover-scroll 10s linear 2s 1 normal running forwards
+  animation: recover-scroll 6s linear 2s 1 normal running forwards
 }
 
 @keyframes recover-scroll {
@@ -85,7 +85,7 @@ if (window.name === 'isRefresh')
 
 /* 降低层级以恢复首页轮播图按键功能 */
 .isRemoveShade {
-  animation: removeShade 10s linear 0s 1 normal running forwards
+  animation: removeShade 6s linear 0s 1 normal running forwards
 }
 @keyframes removeShade {
   100% {
@@ -95,10 +95,10 @@ if (window.name === 'isRefresh')
 
 /* 转场动画 */
 .animation {
-  animation-name: scale;
-  animation-duration: 10s;
+  /* animation-name: scale;
+  animation-duration: 6s; */
   animation-timeline: box-move;
-  animation: scale 10s linear 0s 1 normal running forwards
+  animation: scale 6s linear 0s 1 normal running forwards
 }
 @keyframes scale {
   0% {
