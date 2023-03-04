@@ -57,14 +57,15 @@ onMounted(() => {
     height: 45%;
     display: flex;
     .top-img-box {
+      display: flex;
+      margin: auto;
       width: 50%;
     }
   }
   .top-text-box {
     width: 50%;
     .top-content {
-      width: 70%;
-      padding: 3vw 0 0 4vw;
+      padding: 0px 80px;
     }
   }
   // 顶部 end

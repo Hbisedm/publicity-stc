@@ -63,7 +63,7 @@ watch(computedIndex, (nVal) => {
 </template>
 
 <style scoped lang="scss">
-$distance: 50px;
+$distance: 100px;
 
 .details-wrapper {
   display: flex;
@@ -78,14 +78,13 @@ $distance: 50px;
     padding: 0 200px;
 
     &-name {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
+      padding: 20px;
+      font-size: 60px;
+      width: 400px;
+      font-weight: 700;
       background-color: rgba($color: $topic-color, $alpha: .3);
-      width: 200px;
-      height: 80px;
       text-align: center;
+      position: relative;
       top: -$distance;
       border-radius: $border-radius;
 
@@ -102,6 +101,7 @@ $distance: 50px;
     }
 
     &-desc {
+      text-indent: 2em;
       border-radius: $border-radius;
       background: rgba($color: $topic-color, $alpha: .3);
       width: 98%;
@@ -173,7 +173,7 @@ $distance: 50px;
 
         &-img {
           width: 100%;
-          height: 100%;
+          aspect-ratio: 16/9;
           object-fit: cover;
           object-position: center;
           border-radius: $border-radius;

@@ -29,7 +29,7 @@ const handleClick = () => {
     <div v-if="imgs != null" class="wrapper">
       <el-carousel-item v-for="(item, index) in imgs" :key="index">
         <div class="relative">
-          <img class="object-center-center object-cover w-screen auto-img" :style="{ aspectRatio: '1', height: $attrs.height as string }" :src="item.url">
+          <img class="object-center-center object-cover w-screen auto-img" :style="{ aspectRatio: '16/9', height: $attrs.height as string }" :src="item.url">
           <div class="item-font-size absolute bottom-15 right-20 color-blue-1 op-62 font-600 ">
             {{ item.name }}
           </div>

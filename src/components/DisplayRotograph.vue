@@ -1,20 +1,36 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
+import { defineProps, ref, toRefs, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
 import type { IRotograph } from '@/interface'
 
 const props = defineProps<{
-  data: IRotograph[]
+  rotographData: IRotograph[]
+  activeData: IRotograph
 }>()
 
+const emit = defineEmits(['update:activeData'])
+
+function changeActiveData(data: IRotograph) {
+  emit('update:activeData', data)
+}
+
+const activeData = toRefs(props).activeData
+
+watch(activeData, (newVal) => {
+  const index = props.rotographData.findIndex(i => i.id === newVal.id)
+  handleClick(index, newVal, false)
+})
+
 const scrollContainer = ref<HTMLElement | null>(null)
-const activeData = ref(props.data[0]) // 第一个数据
 const { x } = useScroll(scrollContainer, { behavior: 'smooth' })
-const moveWidth = 250 // 移动距离
-function handleClick(index: number, data: IRotograph) {
-  activeData.value = data
+const MOVE_WIDTH = 250 // 移动距离
+
+function handleClick(index: number, data: IRotograph, nativeClick = true) {
+  if (nativeClick)
+    changeActiveData(data)
+
   // 根据当前index 判断移动距离
-  const moveX = index > 0 ? index * moveWidth : 0
+  const moveX = index > 0 ? index * MOVE_WIDTH : 0
   x.value = moveX
 }
 </script>
@@ -22,7 +38,7 @@ function handleClick(index: number, data: IRotograph) {
 <template>
   <div class="rotograh-container">
     <div ref="scrollContainer" class="rotograh-imgs">
-      <div v-for="(item, index) of data" :key="index" class="rotograh-img-box">
+      <div v-for="(item, index) of rotographData" :key="index" class="rotograh-img-box">
         <img :src="item.url" class="rotograh-img" :class="{ active: activeData.id === item.id }" @click="handleClick(index, item)">
         <label class="rotograh-label">{{ item.name }}</label>
       </div>

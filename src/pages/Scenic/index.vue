@@ -1,8 +1,24 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { rotographData } from '@/dictionary'
 import DisplayRotograh from '@/components/DisplayRotograph.vue'
 
-const descNames = rotographData.map(item => item.name)
+const activeData = ref(rotographData[0])
+
+const descNames = rotographData.map((item) => {
+  return {
+    name: item.name,
+    id: item.id,
+  }
+})
+
+// 利用事件委托
+function handleActive(e: Event) {
+  const dom = e.target as HTMLElement
+  const findRes = rotographData.find(i => i.id === parseInt(dom.dataset.id!))
+  if (findRes)
+    activeData.value = findRes
+}
 </script>
 
 <template>
@@ -11,9 +27,9 @@ const descNames = rotographData.map(item => item.name)
       <h1 class="introduce-title">
         著名景点
       </h1>
-      <ul class="introduce-desc">
-        <li v-for="(item, index) of descNames" :key="index">
-          {{ item }}
+      <ul class="introduce-desc" @click="handleActive($event)">
+        <li v-for="(item, index) of descNames" :key="index" :data-id="item.id" class="cursor-pointer " :class="{ 'text-rose': activeData.id === item.id }">
+          {{ item.name }}
         </li>
       </ul>
       <el-button color="#e94225">
@@ -21,7 +37,7 @@ const descNames = rotographData.map(item => item.name)
       </el-button>
     </div>
     <div class="details">
-      <DisplayRotograh :data="rotographData" />
+      <DisplayRotograh v-model:activeData="activeData" :rotograph-data="rotographData" />
     </div>
   </div>
 </template>

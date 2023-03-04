@@ -23,20 +23,20 @@ export const foodSnack: IFood[] = [{
 
 export const foodStaple: IFood[] = [{
   foodName: '主食1',
-  url: '../../public/images/fso.png',
+  url: '/images/fso.png',
   foodDesc: '这是测试1',
 },
 {
   foodName: '主食2',
-  url: '../../public/images/hl.png',
+  url: '/images/hl.png',
   foodDesc: '这是测试2',
 },
 {
   foodName: '主食3',
-  url: '../../public/images/zjq.png',
+  url: '/images/zjq.png',
   foodDesc: '这是测试3',
 }, {
   foodName: '主食4',
-  url: '../../public/images/wmg.png',
+  url: '/images/wmg.png',
   foodDesc: '这是测试4',
 }]
