@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const imageOrigin = ref('https://s1.ax1x.com/2023/03/04/ppEMto9.png')
+const imageOrigin = ref('https://pic.imgdb.cn/item/64049445f144a01007bfc992.png')
 </script>
 
 <template>

@@ -16,6 +16,7 @@ export interface IRotograph {
   name: string
   path: string
   desc: string
+  detailDesc: string
   /**
    * 景点详情描述
    */

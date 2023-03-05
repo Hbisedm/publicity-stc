@@ -37,7 +37,7 @@ watch(computedIndex, (nVal) => {
         {{ presentScenicData.name }}
       </div>
       <div class="introduce-wrapper-desc">
-        {{ presentScenicData.desc }}
+        {{ presentScenicData.detailDesc }}
       </div>
     </div>
     <div class="introduce-desc">
