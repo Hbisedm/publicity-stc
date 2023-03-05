@@ -1,6 +1,11 @@
 <script setup  lang="ts">
 import { Icon } from '@iconify/vue'
 import Accordion from '@/components/Accordion.vue'
+import { ISubject } from '@/interface'
+
+defineProps<{
+  subData: ISubject
+}>()
 
 const emit = defineEmits(['confirmEnter'])
 
@@ -12,37 +17,20 @@ const enterHome = (): void => {
 <template>
   <div class="subject">
     <div class="item content-box">
-      <div class="title">
-        Swatow
-      </div>
+      <div class="title"> {{ subData.label }} </div>
       <div class="subhead-box">
-        <div class="subhead">
-          海滨小城
-        </div>
+        <div class="subhead">{{ subData.subhead }}</div>
         <div class="btn-box" @click="enterHome">
-          <div class="btn-text">
-            进入专题
-          </div>
+          <div class="btn-text">{{ subData.enterName }}</div>
           <Icon icon="tabler:door-enter" color="white" width="30" height="30" :horizontal-flip="true" />
         </div>
       </div>
       <div class="introduce">
-        <div class="introduce-item">
-          经济特区
-        </div>
-        <div class="introduce-item">
-          经济特区
-        </div>
-        <div class="introduce-item">
-          经济特区
-        </div>
-        <div class="introduce-item">
-          经济特区
-        </div>
+        <div class="introduce-item" v-for="(item, index) in subData.tag" :key="index">{{ item }}</div>
       </div>
     </div>
     <div class="item shuffling-box">
-      <Accordion />
+      <Accordion :accordionData="subData.accordion" />
     </div>
   </div>
 </template>
@@ -59,7 +47,6 @@ const enterHome = (): void => {
 }
 
 .content-box {
-
   color: #fff;
   // background-color: pink;
   user-select: none;
@@ -69,7 +56,7 @@ const enterHome = (): void => {
 .title {
   font-size: 180px;
   font-weight: bold;
-  padding-top: 50px;
+  padding-top: 70px;
   line-height: 140px;
 }
 
@@ -110,7 +97,6 @@ const enterHome = (): void => {
 
 .introduce {
   display: flex;
-  padding-top: 10px;
 }
 
 .introduce-item {

@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { NCarousel, NStep, NSteps } from 'naive-ui'
 import Subject from './components/Subject.vue'
+import { coverTopic } from '@/dictionary'
+
 
 const emit = defineEmits(['handleEnterHome'])
 // 纵向轮播下标
@@ -24,7 +26,7 @@ const filpOver = (next: Function): void => {
   <div class="box">
     <NCarousel :show-arrow="true" direction="vertical" dot-type="line" dot-placement="left">
       <!-- 纵向轮播 -->
-      <Subject v-for="item in 4" :key="item" class="carousel-img" @confirmEnter="enterHome" />
+      <Subject v-for="(item, index) in coverTopic" :key="index" :subData="item" class="carousel-img" @confirmEnter="enterHome" />
 
       <!-- 下一页 -->
       <template #arrow="{ next }">
