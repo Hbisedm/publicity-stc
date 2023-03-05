@@ -1,35 +1,18 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { IAccordion } from "@/interface";
 
-const ary = reactive([
-  {
-    title: 'Explore The World',
-    url: 'https://picsum.photos/1350/900?random=1',
-  },
-  {
-    title: 'Wild Forest',
-    url: 'https://picsum.photos/1350/900?random=2',
-  },
-  {
-    title: 'Sunny Beach',
-    url: 'https://picsum.photos/1350/900?random=3',
-  },
-  {
-    title: 'City on Winter',
-    url: 'https://picsum.photos/1350/900?random=4',
-  },
-  {
-    title: 'Mountains - Clouds',
-    url: 'https://picsum.photos/1350/900?random=5',
-  },
-])
+defineProps<{
+  accordionData: IAccordion[]
+}>()
+
+
 </script>
 
 <template>
   <DCarouselIndicator>
     <template #default="page">
       <div class="box">
-        <div v-for="(item, index) in ary" :key="index" :style="{ backgroundImage: `url(${item.url})` }" class="panel" :class="[page.pageIndex === index + 1 ? 'active' : '']" @click="page.setPageIndex(index + 1)">
+        <div v-for="(item, index) in accordionData" :key="index" :style="{ backgroundImage: `url(${item.url})` }" class="panel" :class="[page.pageIndex === index + 1 ? 'active' : '']" @click="page.setPageIndex(index + 1)">
           <h3>{{ item.title }}</h3>
         </div>
       </div>

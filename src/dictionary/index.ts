@@ -4,3 +4,4 @@ export { homeTopShuffling, homeScenic, homeFestival, homeItinerary } from './hom
 export { rotographData } from './scenic'
 export { way } from './way'
 export { foodSnack, foodStaple } from './food'
+export { coverTopic } from './surfacePlot'
