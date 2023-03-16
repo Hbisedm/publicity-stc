@@ -1,17 +1,20 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue'
+import { useRouter } from 'vue-router'
 import Title from '@/components/Title.vue'
+
+const router = useRouter()
 
 const title = '传统民居'
 
 const enterDetail = () => {
-  console.log('跳转')
+  router.push('/houses')
 }
 </script>
 
 <template>
   <div class="box">
-    <Title :title="title" />
+    <Title :title="title" path="/houses" />
     <div class="content-box">
       <div class="text-box">
         <div class="introduce">
