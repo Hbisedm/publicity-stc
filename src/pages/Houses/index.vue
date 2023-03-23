@@ -1,18 +1,26 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import Classification from './components/Classification.vue'
 import { SortData } from '@/dictionary'
+
+const router = useRouter()
 
 const direction = ref<string>('')
 const confirmEnter = (e: string): void => {
   direction.value = e
+  let path: string
+  e === 'left' ? (path = '/eave') : (path = '/genre')
+  setTimeout(() => {
+    router.push(path)
+  }, 1000)
 }
 </script>
 
 <template>
   <div class="box">
     <img class="right-img" src="https://s1.ax1x.com/2023/03/01/ppiatL6.jpg" alt="">
-    <div class="genre-box" :class="direction" >
+    <div class="genre-box" :class="direction">
       <img class="left-img" src="https://s1.ax1x.com/2023/03/04/ppE15y6.jpg" alt="">
     </div>
     <div class="content">
@@ -54,12 +62,19 @@ const confirmEnter = (e: string): void => {
 
 .genre-box.left {
   animation: toLeft 1s ease-in-out  0s 1 normal running forwards;
-  // transition: left 4s;
 }
-
 @keyframes toLeft {
   100% {
     left: -90%;
+  }
+}
+
+.genre-box.right {
+  animation: toRight 1s ease-in-out  0s 1 normal running forwards;
+}
+@keyframes toRight {
+  100% {
+    left: 0;
   }
 }
 
