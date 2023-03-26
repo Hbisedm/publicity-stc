@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { IAccordion } from "@/interface";
+import type { IAccordion } from '@/interface'
 
 defineProps<{
   accordionData: IAccordion[]
 }>()
-
-
 </script>
 
 <template>

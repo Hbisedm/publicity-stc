@@ -1,5 +1,8 @@
 <script setup lang="ts">
 // import Shuffling from '@/components/Shuffling.vue'
+import ImageText from '@/components/ImageText.vue'
+import { houseGenre } from '@/dictionary'
+import PageFoot from '@/components/PageFoot.vue'
 </script>
 
 <template>
@@ -9,18 +12,12 @@
     </div>
     <div class="bottom-box">
       <div class="bottom-content">
-        <!-- 介绍与小图 -->
-        <div class="content-introduce flex">
-          <div class="introduce-text flex">
-            <div class="introduce-title">竹竿厝</div>
-            <div class="text">2312323111111111333333333331</div>
-          </div>
-          <div class="introduce-img" />
-        </div>
-        <!-- 大图 -->
-        <div class="content-shuffling" />
+        <ImageText v-for="(ele, index) in houseGenre" :key="index" :item="[ele, index]" />
       </div>
     </div>
+    <PageFoot v-slot="data">
+      {{ data.nums }}
+    </PageFoot>
   </div>
 </template>
 
@@ -38,39 +35,12 @@
   display: flex;
   justify-content: center;
   background-color: orangered;
-  height: 2000px;
-}
 
-.bottom-content {
-  width: 75%;
-  height: 1000px;
-  margin-top: -180px;
-  padding: 140px 40px 0;
-  background-color: pink;
-
-  .introduce-text {
-    width: 50%;
-    height: 300px;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 20px;
-    padding-right: 60px;
-    background-color: green;
-
-    div {
-      background: pink;
-    }
-    .introduce-title {
-      font-size: 32px;
-      font-weight: bold;
-      line-height: 80px;
-    }
-  }
-
-  .introduce-img {
-    width: 50%;
-    height: 300px;
-    background-color: yellow;
+  .bottom-content {
+    width: 75%;
+    margin-top: -180px;
+    padding: 140px 40px 0;
+    background-color: pink;
   }
 }
 </style>
