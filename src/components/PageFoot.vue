@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-const num = ref(10)
 </script>
 
 <template>
   <div class="foot-box">
     <img class="foot-bgimg" src="/images/home.png" alt="">
     <div class="foot-content">
-      <slot :nums="num" />
+      <slot />
     </div>
   </div>
 </template>
