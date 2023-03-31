@@ -24,6 +24,7 @@ declare module '@vue/runtime-core' {
     IndicatorProgress: typeof import('./src/components/IndicatorProgress.vue')['default']
     Logo: typeof import('./src/components/logo.vue')['default']
     PageFoot: typeof import('./src/components/PageFoot.vue')['default']
+    PageFootContent: typeof import('./src/components/PageFootContent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Shuffling: typeof import('./src/components/Shuffling.vue')['default']
