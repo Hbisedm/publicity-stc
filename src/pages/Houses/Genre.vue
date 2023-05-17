@@ -1,5 +1,9 @@
 <script setup lang="ts">
 // import Shuffling from '@/components/Shuffling.vue'
+import ImageText from '@/components/ImageText.vue'
+import { houseGenre, houseGenreFoot } from '@/dictionary'
+import PageFoot from '@/components/PageFoot.vue'
+import PageFootContent from '@/components/PageFootContent.vue'
 </script>
 
 <template>
@@ -8,8 +12,13 @@
       <!-- <Shuffling /> -->
     </div>
     <div class="bottom-box">
-      <div class="bottom-content" />
+      <div class="bottom-content">
+        <ImageText v-for="(ele, index) in houseGenre" :key="index" :item="[ele, index]" />
+      </div>
     </div>
+    <PageFoot>
+      <PageFootContent :data="houseGenreFoot"/>
+    </PageFoot>
   </div>
 </template>
 
@@ -17,21 +26,22 @@
 .box {
   background-color: pink;
 }
+
 .shuffling-box {
   height: 600px;
   background-color: skyblue;
 }
+
 .bottom-box {
   display: flex;
   justify-content: center;
   background-color: orangered;
-  height: 2000px;
-}
 
-.bottom-content {
-  width: 75%;
-  height: 1000px;
-  margin-top: -140px;
-  background-color: pink;
+  .bottom-content {
+    width: 75%;
+    margin-top: -180px;
+    padding: 140px 40px 0;
+    background-color: pink;
+  }
 }
 </style>

@@ -10,6 +10,8 @@ const City = () => import('@/pages/City/index.vue')
 const District = () => import('@/pages/City/District.vue')
 const Way = () => import('@/pages/Way/index.vue')
 const Houses = () => import('@/pages/Houses/index.vue')
+const HousesGenre = () => import('@/pages/Houses/Genre.vue')
+const HousesEave = () => import('@/pages/Houses/Eave.vue')
 const Demo = () => import('@/pages/PlayGround/Demo.vue')
 
 export const routes: Array<RouteRecordRaw> = [
@@ -53,8 +55,16 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/scenicDetail/:id',
     component: scenicDetail,
   },
-  {
+  { // 传统民居 —— 首页
     path: '/houses',
     component: Houses,
+  },
+  { // 传统民居 —— 屋型
+    path: '/genre',
+    component: HousesGenre,
+  },
+  { // 传统民居 —— 屋檐
+    path: '/eave',
+    component: HousesEave,
   },
 ]
